@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSST - Expertos en Gestión Ambiental y Seguridad Laboral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="ecosst-styles.css?v=3">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <img class="logo" src="Imagenes/modified_image.png" alt="">
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1> <br> Su Socio en Gestión Ambiental y Seguridad Laboral</h1>
+            <p>Soluciones integrales para un futuro sostenible y seguro</p>
+            <a href="#contacto" class="cta-button">Solicita una consulta</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Nuestros Servicios</h2>
+            <!-- Dynamic Tabs Navigation -->
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab(event, 'sg-sst')">SG-SST</button>
+                    <button class="tab-btn" onclick="openTab(event, 'riesgos')">Riesgos Críticos (TAR)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'salud')">Medicina Preventiva</button>
+                    <button class="tab-btn" onclick="openTab(event, 'legal')">Legal y Capacitación</button>
+                </div>
+
+                <!-- Tab Content A: SG-SST -->
+                <div id="sg-sst" class="tab-content active">
+                    <div class="service-detail-grid">
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-file-contract"></i></div>
+                            <div class="card-body">
+                                <h3>Implementación "Llave en Mano"</h3>
+                                <p>Diseño, implementación y ejecución del SG-SST. Aseguramos que el sistema sea
+                                    eficiente, operativo y medible, pasando del documento a una cultura organizacional
+                                    preventiva.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-tasks"></i></div>
+                            <div class="card-body">
+                                <h3>Administración del SG-SST</h3>
+                                <p>Soporte continuo, diseño de políticas, manuales, acompañamiento en reuniones y
+                                    asistencia técnica permanente ante auditorías del Ministerio de Trabajo o ARL.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-search-plus"></i></div>
+                            <div class="card-body">
+                                <h3>Auditoría Interna y Mejora</h3>
+                                <p>Auditorías anuales para determinar la conformidad y eficacia, identificando
+                                    oportunidades de mejora para la gerencia.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-certificate"></i></div>
+                            <div class="card-body">
+                                <h3>Asesoría en Estándares del CCS y su guia RUC</h3>
+                                <p>Gestión bajo estándares de la Resolución 0312 y sistema RUC (Registro Único de
+                                    Contratistas), buscando mayor competitividad en licitaciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content B: Riesgos Críticos -->
+                <div id="riesgos" class="tab-content">
+                    <div class="service-detail-grid">
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-mountain"></i></div>
+                            <div class="card-body">
+                                <h3>Trabajo en Alturas (T.A.R.)</h3>
+                                <p>Certificación de cursos. Diseño de programas de prevención contra caídas, asesoría en
+                                    líneas de vida y puntos de anclaje (ANSI/EN).</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-bolt"></i></div>
+                            <div class="card-body">
+                                <h3>Seguridad Eléctrica</h3>
+                                <p>Programa de Seguridad Eléctrica (RETIE / Res. 5018). Procedimientos seguros,
+                                    protocolos de EPP y prácticas seguras (Alta/Media/Baja tensión).</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-lock"></i></div>
+                            <div class="card-body">
+                                <h3>Bloqueo y Etiquetado (LOTO)</h3>
+                                <p>Inventario de tareas con energías peligrosas y procedimientos estándar de
+                                    bloqueo/etiquetado.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-fire"></i></div>
+                            <div class="card-body">
+                                <h3>Programas Especiales (Calderas)</h3>
+                                <p>Gestión específica para tareas críticas, como el Programa de Gestión en Trabajo en
+                                    Calderas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content C: Medicina Preventiva -->
+                <div id="salud" class="tab-content">
+                    <div class="service-detail-grid">
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-user-md"></i></div>
+                            <div class="card-body">
+                                <h3>Evaluaciones Médicas</h3>
+                                <p>Exámenes médicos de ingreso, periódicos y de retiro (pre-ocupacionales).</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-heartbeat"></i></div>
+                            <div class="card-body">
+                                <h3>Sistemas de Vigilancia (SVE)</h3>
+                                <p>Diseño de SVE Osteomuscular, Auditivo, Visual, Psicosocial, Cardiovascular y
+                                    Biológico.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-chart-line"></i></div>
+                            <div class="card-body">
+                                <h3>Asesoría Estratégica</h3>
+                                <p>Análisis de datos epidemiológicos para planificar intervenciones y soporte en
+                                    permisos de horas extras ante MinTrabajo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content D: Legal -->
+                <div id="legal" class="tab-content">
+                    <div class="service-detail-grid">
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-balance-scale"></i></div>
+                            <div class="card-body">
+                                <h3>Matriz Legal</h3>
+                                <p>Identificación y seguimiento de leyes y decretos aplicables, garantizando
+                                    trazabilidad normativa.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-search-location"></i></div>
+                            <div class="card-body">
+                                <h3>Investigación de Accidentes</h3>
+                                <p>Análisis causal (5 Por Qué, Ishikawa) enfocado en la causa raíz de la accidentalidad.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="card-body">
+                                <h3>Capacitación Especializada</h3>
+                                <p>Formación para el cambio de comportamiento: Liderazgo en SST, Manejo de Químicos y
+                                    Tareas de Alto Riesgo.</p>
+                            </div>
+                        </div>
+                        <div class="service-detail-card">
+                            <div class="card-image-header"><i class="fas fa-leaf"></i></div>
+                            <div class="card-body">
+                                <h3>Gestión Ambiental</h3>
+                                <p>Asesoría en ISO 14001:2015 y soporte para proyectos con licenciamiento ambiental.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Nuestros Aliados -->
+    <section id="aliados" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Nuestros Aliados</h2>
+            <div class="services-grid">
+                <!-- Aliado 1 -->
+                <div class="service-card reveal">
+                    <div class="service-card-content">
+                        <h3>Ehico Mediciones y Estudios Higiene Ocupacional</h3>
+                        <div class="ally-image-container">
+                            <img src="Imagenes/ehico.png" alt="Ehico Contexto" class="ally-image">
+                            <img src="Imagenes/logos%20empresas/logo%20Ehico.png" alt="Ehico Mediciones Logo"
+                                class="ally-logo-overlay ally-logo-ehico">
+                        </div>
+                        <p>Consultoría especializada en evaluaciones cuantitativas de higiene industrial, garantizando
+                            la precisión en mediciones ambientales y ocupacionales para el cumplimiento normativo
+                            riguroso.</p>
+                    </div>
+                </div>
+                <!-- Aliado 2 -->
+                <div class="service-card reveal">
+                    <div class="service-card-content">
+                        <h3>Calderas del Occidente</h3>
+                        <div class="ally-image-container">
+                            <img src="Imagenes/caldera.png" alt="Caldera Contexto" class="ally-image">
+                            <img src="Imagenes/logos%20empresas/cliente-calderas.png" alt="Calderas del Occidente Logo"
+                                class="ally-logo-overlay">
+                        </div>
+                        <p>Inspección, mantenimiento y certificación de generadores de vapor, asegurando la operatividad
+                            crítica bajo los estándares de la Resolución 1857 de 2024 y normativas ASME.</p>
+                    </div>
+                </div>
+                <!-- Aliado 3 -->
+                <div class="service-card reveal">
+                    <div class="service-card-content">
+                        <h3>Unidad Salud Ocupacional</h3>
+                        <div class="ally-image-container">
+                            <img src="Imagenes/meedico.png" alt="Medico Contexto" class="ally-image"
+                                style="object-position: top;">
+                            <img src="Imagenes/logos%20empresas/logo%20uso.png" alt="Unidad Salud Ocupacional Logo"
+                                class="ally-logo-overlay">
+                        </div>
+                        <p>Centro especializado en medicina preventiva y del trabajo, ejecutando sistemas de vigilancia
+                            epidemiológica y valoraciones de aptitud laboral con alto rigor científico.</p>
+                    </div>
+                </div>
+                <!-- Aliado 4 (New) -->
+                <div class="service-card reveal">
+                    <div class="service-card-content">
+                        <h3>Crane & Safety Inspección Equipos de Izaje de carga</h3>
+                        <div class="ally-image-container">
+                            <img src="Imagenes/crane.png" alt="Crane Contexto" class="ally-image">
+                            <img src="Imagenes/logos%20empresas/cliente-csb.png" alt="Crane & Safety Logo"
+                                class="ally-logo-overlay">
+                        </div>
+                        <p>Certificación de equipos de elevación y formación especializada de personal en maniobras de
+                            izaje de cargas, bajo estricto cumplimiento de estándares internacionales ANSI/ASME y
+                            normatividad nacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes y Costos -->
+    <section id="planes" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Planes y Costos</h2>
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card">
+                    <h4>Diseño de SG-SST</h4>
+                    <div class="price-tag">$1.5M - $2.5M <span class="price-period">COP</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Diseño de matrices y planes</li>
+                        <li><i class="fas fa-check"></i> Documentación inicial</li>
+                        <li><i class="fas fa-check"></i> Visita a instalaciones</li>
+                        <li><i class="fas fa-check"></i> Entrega digital</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Solicitar</a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <h4>Administración SG-SST</h4>
+                    <div class="price-tag">$700k - $1.5M <span class="price-period">/ mes</span></div>
+                    <p>Gestión continua y soporte</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-star"></i> Evaluación inicial</li>
+                        <li><i class="fas fa-star"></i> Diseño de políticas y manuales</li>
+                        <li><i class="fas fa-star"></i> Acompañamiento en reuniones</li>
+                        <li><i class="fas fa-star"></i> Capacitación al responsable</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Elegir Plan</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="pricing-card">
+                    <h4>Matriz Legal</h4>
+                    <div class="price-tag">$500k <span class="price-period">COP</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Identificación de normas</li>
+                        <li><i class="fas fa-check"></i> Descripción de requisitos</li>
+                        <li><i class="fas fa-check"></i> Asignación de responsables</li>
+                        <li><i class="fas fa-check"></i> Borrador de plan de cumplimiento</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Solicitar</a>
+                </div>
+
+                <!-- Plan 4 -->
+                <div class="pricing-card">
+                    <h4>Planes de Emergencia</h4>
+                    <div class="price-tag">$500k - $800k <span class="price-period">COP</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Análisis de vulnerabilidad</li>
+                        <li><i class="fas fa-check"></i> Procedimientos operativos</li>
+                        <li><i class="fas fa-check"></i> Rutas de evacuación</li>
+                        <li><i class="fas fa-check"></i> Conformación de brigadas</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Solicitar</a>
+                </div>
+
+                <!-- Plan 5 -->
+                <div class="pricing-card">
+                    <h4>Planos de Evacuación</h4>
+                    <div class="price-tag">$250k - $400k <span class="price-period">COP</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Diseño 2D/3D</li>
+                        <li><i class="fas fa-check"></i> Ubicación de extintores</li>
+                        <li><i class="fas fa-check"></i> Señalización de salidas</li>
+                        <li><i class="fas fa-check"></i> Formato digital e impreso</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Solicitar</a>
+                </div>
+
+                <!-- Plan 6 -->
+                <div class="pricing-card">
+                    <h4>Matrices de Peligros</h4>
+                    <div class="price-tag">$500k - $800k <span class="price-period">COP</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Identificación de peligros</li>
+                        <li><i class="fas fa-check"></i> Evaluación de riesgos (GTC 45)</li>
+                        <li><i class="fas fa-check"></i> Controles propuestos</li>
+                        <li><i class="fas fa-check"></i> Documento actualizable</li>
+                    </ul>
+                    <a href="#contacto" class="cta-button">Solicitar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Clientes -->
+    <section id="clientes" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Nuestros Clientes</h2>
+            <div class="slider">
+                <div class="slide-track">
+                    <!-- Original 5 logos -->
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-calderas.png"
+                            alt="Calderas del Occidente"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-csb.png" alt="C&SB"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-fenix.jpg" alt="Fenix Confecciones">
+                    </div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-induzinc.jpg" alt="Induzinc"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-lovedreams.jpg"
+                            alt="Love Dreams Pijamas"></div>
+
+                    <!-- Duplicate 1 -->
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-calderas.png"
+                            alt="Calderas del Occidente"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-csb.png" alt="C&SB"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-fenix.jpg" alt="Fenix Confecciones">
+                    </div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-induzinc.jpg" alt="Induzinc"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-lovedreams.jpg"
+                            alt="Love Dreams Pijamas"></div>
+
+                    <!-- Duplicate 2 -->
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-calderas.png"
+                            alt="Calderas del Occidente"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-csb.png" alt="C&SB"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-fenix.jpg" alt="Fenix Confecciones">
+                    </div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-induzinc.jpg" alt="Induzinc"></div>
+                    <div class="slide"><img src="Imagenes/logos%20empresas/cliente-lovedreams.jpg"
+                            alt="Love Dreams Pijamas"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title reveal">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-card reveal">
+                <p>"EcoSST transformó nuestra cultura de seguridad. Su enfoque práctico y personalizado hizo toda la
+                    diferencia."</p>
+                <strong>- María Rodríguez, Gerente de RRHH</strong>
+            </div>
+            <div class="testimonial-card reveal">
+                <p>"Gracias a las auditorías de EcoSST, optimizamos nuestros procesos y mejoramos significativamente
+                    nuestro desempeño ambiental."</p>
+                <strong>- Carlos Mendoza, Director de Operaciones</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <form class="contact-form" id="contactForm" action="mailto:bastian.ruiz1991@gmail.com" method="post"
+                enctype="text/plain">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+                <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EcoSST. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="ecosst-script.js?v=2"></script>
+</body>
+
+</html>
