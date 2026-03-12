@@ -27,6 +27,34 @@ document.addEventListener("DOMContentLoaded", function () {
         firstTab.classList.add("active");
     }
     reveal(); // Trigger reveal on load
+
+    // Handle Contact Form Submission via WhatsApp
+    var contactForm = document.getElementById("advancedContactForm");
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent default page reload
+
+            // Get form values
+            var empresa = document.getElementById("empresa").value;
+            var servicio = document.getElementById("servicio").value;
+            var reto = document.getElementById("reto").value;
+
+            // Construct WhatsApp Message
+            var phoneNumber = "573183903019"; // Without '+' for wa.me link
+            var message = `¡Hola Johan! Estoy interesado en una asesoría para mi empresa.\n\n` +
+                          `🏢 *Empresa / Contacto:* ${empresa}\n` +
+                          `🛠️ *Servicio de Interés:* ${servicio}\n` +
+                          `🎯 *Nuestro mayor reto hoy es:* ${reto}\n\n` +
+                          `Quedo atento a su respuesta.`;
+
+            // Encode message for URL
+            var encodedMessage = encodeURIComponent(message);
+
+            // Redirect to WhatsApp
+            var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
 });
 
 // Scroll Reveal Animation
