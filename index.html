@@ -401,35 +401,97 @@
     <section id="contacto" class="section">
         <div class="container">
             <h2 class="section-title">Contáctanos</h2>
-            <div class="service-detail-grid">
-                <div class="service-detail-card reveal">
-                    <div class="card-image-header"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="card-body" style="text-align: center;">
-                        <h3>Celular</h3>
-                        <p style="font-size: 1.1rem; font-weight: 500; color: var(--primary);">
-                            <a href="tel:+573183903019">+57 318 390 3019</a>
-                        </p>
+            <div class="contact-advanced-container reveal">
+                <!-- Columna Izquierda: Mensaje y Canales -->
+                <div class="contact-content-column">
+                    <div class="contact-header">
+                        <img src="Imagenes/johan_profile.png" alt="Johan Ruiz, Consultor SST" class="contact-photo"
+                            onerror="this.src='Imagenes/meedico.png'" style="object-position: center top;">
+                        <div>
+                            <h3>¿Hablamos de la seguridad de su empresa?</h3>
+                            <p class="contact-subtitle">No permita que la burocracia o el riesgo detengan su
+                                crecimiento. Estoy aquí para digitalizar su gestión y proteger a su equipo.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-channels-grid">
+                        <div class="channel-card">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="channel-info">
+                                <strong>WhatsApp Directo</strong>
+                                <a href="https://wa.me/573183903019" target="_blank">+57 318 390 3019</a>
+                                <span class="channel-action">Respuesta en menos de 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="channel-card">
+                            <i class="fas fa-envelope"></i>
+                            <div class="channel-info">
+                                <strong>Correo Corporativo</strong>
+                                <a href="mailto:bastian.ruiz1991@gmail.com">bastian.ruiz1991@gmail.com</a>
+                                <span class="channel-action">Para solicitudes de cotización</span>
+                            </div>
+                        </div>
+                        <div class="channel-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="channel-info">
+                                <strong>Ubicación</strong>
+                                <span>Cali, Valle del Cauca</span>
+                                <span class="channel-action">Consultoría presencial y remota</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="service-detail-card reveal">
-                    <div class="card-image-header"><i class="fab fa-whatsapp"></i></div>
-                    <div class="card-body" style="text-align: center;">
-                        <h3>WhatsApp</h3>
-                        <p style="font-size: 1.1rem; font-weight: 500; color: var(--primary);">
-                            <a href="https://wa.me/573183903019" target="_blank">+57 318 390 3019</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="service-detail-card reveal">
-                    <div class="card-image-header"><i class="fas fa-envelope"></i></div>
-                    <div class="card-body" style="text-align: center;">
-                        <h3>Correos Electrónicos</h3>
-                        <p style="margin-bottom: 0.5rem; font-size: 1rem; font-weight: 500; color: var(--primary);">
-                            <a href="mailto:bastian.ruiz1991@gmail.com">bastian.ruiz1991@gmail.com</a>
-                        </p>
-                        <p style="font-size: 1rem; font-weight: 500; color: var(--primary);">
-                            <a href="mailto:neosstconsultoria@gmail.com">neosstconsultoria@gmail.com</a>
-                        </p>
+
+                <!-- Columna Derecha: Formulario y Credibilidad -->
+                <div class="contact-form-column">
+                    <form class="advanced-contact-form" action="mailto:neosstconsultoria@gmail.com" method="post"
+                        enctype="text/plain">
+                        <div class="form-group">
+                            <label for="empresa">Nombre de la Empresa / Contacto</label>
+                            <input type="text" id="empresa" name="Empresa_Contacto" required
+                                placeholder="Ej. Constructora ABC / Juan Pérez">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servicio">Servicio de Interés</label>
+                            <div class="custom-select-wrapper">
+                                <select id="servicio" name="Servicio_Interes" required>
+                                    <option value="" disabled selected>Seleccione un área principal</option>
+                                    <option value="SG-SST">Diseño / Administración SG-SST</option>
+                                    <option value="Tareas de Alto Riesgo">Tareas de Alto Riesgo (TAR)</option>
+                                    <option value="PESV">PESV (Plan Estratégico de Seguridad Vial)</option>
+                                    <option value="Medicina e Higiene">Medicina Preventiva e Higiene Laboral</option>
+                                    <option value="Capacitaciones">Capacitaciones y Entrenamientos</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-icon"></i>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reto">¿Cuál es su mayor reto hoy?</label>
+                            <textarea id="reto" name="Reto_Principal" rows="3" required
+                                placeholder="Ej. Requerimos certificar a nuestro equipo para un proyecto..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Agendar Asesoría Gratuita <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+
+                    <div class="credibility-block">
+                        <div class="credibility-item">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <strong>Licencia SST</strong>
+                                <span>Res. 1162/2019</span>
+                            </div>
+                        </div>
+                        <div class="credibility-item">
+                            <i class="fas fa-user-md"></i>
+                            <div>
+                                <strong>Soporte Técnico</strong>
+                                <span>Auxiliar Enfermería (Res. 76-4209)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>>
