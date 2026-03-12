@@ -804,6 +804,219 @@ footer p {
     background-color: var(--white);
 }
 
+/* --- Budget Calculator --- */
+.calc-container {
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    background: var(--bg-light);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    transition: height 0.3s ease;
+}
+
+.calc-section {
+    padding: 3rem;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.calc-section.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.calc-section.fade-in {
+    display: block;
+    animation: smoothFadeIn 0.5s forwards;
+}
+
+@keyframes smoothFadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+#calc-form h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-size: 1.8rem;
+}
+
+#calc-form > p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+}
+
+.calc-group {
+    margin-bottom: 2rem;
+}
+
+.calc-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.calc-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.calc-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 1rem;
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.calc-btn:hover {
+    border-color: var(--secondary);
+    background: rgba(56, 189, 248, 0.05);
+}
+
+.calc-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+/* Calculator Result Card */
+#calc-result {
+    text-align: center;
+    background: var(--white);
+}
+
+.result-header p {
+    color: var(--text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-header h3 {
+    color: #0047AB; /* NeoSST Corporate Blue for Highlights */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.result-features {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 2.5rem auto;
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.result-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.result-features li:last-child {
+    margin-bottom: 0;
+}
+
+.result-features li i {
+    color: #0047AB;
+    font-size: 1.25rem;
+    margin-top: 0.2rem;
+}
+
+.result-features li span {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.result-price-container {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.result-price-container p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.result-price-container h4 {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.result-actions .primary-btn {
+    width: 100%;
+    max-width: 350px;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #0047AB, var(--accent));
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.text-btn:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 640px) {
+    .calc-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .calc-options {
+        flex-direction: column;
+    }
+    
+    .calc-btn {
+        width: 100%;
+    }
+    
+    .result-header h3 {
+        font-size: 2rem;
+    }
+}
+
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -278,6 +278,58 @@
                 Evite sanciones de hasta <strong>500 SMMLV</strong> con una inversión que protege su empresa y su equipo
                 desde $1.5M.
             </p>
+
+            <!-- Calculadora de Presupuesto SST -->
+            <div class="calc-container reveal">
+                <!-- Formulario -->
+                <div id="calc-form" class="calc-section">
+                    <h3>Calculadora de Presupuesto SST</h3>
+                    <p>Descubra el plan ideal para su empresa en 2 simples pasos:</p>
+                    
+                    <div class="calc-group">
+                        <label>1. ¿Cuántos empleados tiene su empresa?</label>
+                        <div class="calc-options" id="calc-employees">
+                            <button class="calc-btn active" data-val="1-10">1-10</button>
+                            <button class="calc-btn" data-val="11-50">11-50</button>
+                            <button class="calc-btn" data-val="+50">+50</button>
+                        </div>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>2. ¿Cuál es su nivel de riesgo ARL?</label>
+                        <div class="calc-options" id="calc-risk">
+                            <button class="calc-btn active" data-val="Bajo">Bajo (I, II, III)</button>
+                            <button class="calc-btn" data-val="Alto">Alto (IV, V)</button>
+                        </div>
+                    </div>
+                    
+                    <button id="btn-calculate" class="cta-button" style="width: 100%; margin-top: 1rem;">Calcular mi Plan Ideal</button>
+                </div>
+
+                <!-- Resultado (Hidden by default) -->
+                <div id="calc-result" class="calc-section hidden">
+                    <div class="result-header">
+                        <p>Su plan recomendado es:</p>
+                        <h3 id="result-plan-name">PLAN ESENCIAL</h3>
+                    </div>
+                    
+                    <ul class="result-features" id="result-features">
+                        <li><i class="fas fa-check-circle"></i> <span>Diseño documental SG-SST</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Matriz legal básica</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Plan de emergencias estándar</span></li>
+                    </ul>
+
+                    <div class="result-price-container" id="result-price-container">
+                        <p>Inversión estimada</p>
+                        <h4 id="result-price">Desde $1.200.000 COP</h4>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <a href="#contacto" id="result-cta" class="cta-button primary-btn">Contratar Ahora</a>
+                        <button id="btn-recalculate" class="text-btn"><i class="fas fa-redo"></i> Volver a calcular</button>
+                    </div>
+                </div>
+            </div>
             <div class="pricing-grid">
                 <!-- Plan 1 -->
                 <div class="pricing-card">
