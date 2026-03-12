@@ -833,6 +833,23 @@ footer p {
     box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
 }
 
+.popular-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(14, 165, 233, 0.3);
+    white-space: nowrap;
+}
+
 .pricing-card.featured p,
 .pricing-card.featured h4 {
     color: var(--text-dark);
