@@ -755,11 +755,23 @@ footer p {
 }
 
 .card-image-header {
-    height: 140px;
+    height: 180px;
     background: linear-gradient(135deg, var(--secondary), var(--primary));
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.card-image-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-detail-card:hover .card-image-header img {
+    transform: scale(1.05);
 }
 
 .card-image-header i {
