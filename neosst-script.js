@@ -76,7 +76,7 @@ function reveal() {
     }
 }
 
-// Budget Calculator Logic
+    // Budget Calculator Logic
 document.addEventListener("DOMContentLoaded", function () {
     const calcEmployeesBtns = document.querySelectorAll('#calc-employees .calc-btn');
     const calcRiskBtns = document.querySelectorAll('#calc-risk .calc-btn');
@@ -89,10 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultPlanName = document.getElementById('result-plan-name');
     const resultFeatures = document.getElementById('result-features');
     const resultPriceContainer = document.getElementById('result-price-container');
-    const resultPrice = document.getElementById('result-price');
+    const resultPriceInitial = document.getElementById('result-price-initial');
+    const resultPriceMonthly = document.getElementById('result-price-monthly');
     const resultCta = document.getElementById('result-cta');
 
-    let selectedEmployees = '1-10'; // Default
+    let selectedEmployees = '1-2'; // Default
     let selectedRisk = 'Bajo'; // Default
 
     // Handle button selections
@@ -116,63 +117,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Calculation Logic
     btnCalculate.addEventListener('click', function() {
-        let plan = '';
-        let price = '';
-        let ctaText = '';
-        let featuresHtml = '';
+        const inputName = document.getElementById('calc-name').value.trim();
+        const inputPhone = document.getElementById('calc-phone').value.trim();
 
-        // Logic Evaluation
-        if (selectedEmployees === '+50') {
-            plan = 'PLAN PREMIUM';
-        } else if (selectedEmployees === '11-50' && selectedRisk === 'Alto') {
-            plan = 'PLAN PREMIUM';
-        } else if (selectedEmployees === '11-50' && selectedRisk === 'Bajo') {
-            plan = 'PLAN PROFESIONAL';
-        } else if (selectedEmployees === '1-10' && selectedRisk === 'Alto') {
-            plan = 'PLAN PROFESIONAL';
-        } else {
-            // 1-10 & Bajo
-            plan = 'PLAN ESENCIAL';
+        if (!inputName || !inputPhone) {
+            alert('Por favor, complete su nombre y número de WhatsApp para ver su plan ideal.');
+            return;
         }
 
-        // Output Generation based on Plan
-        if (plan === 'PLAN ESENCIAL') {
-            price = 'Desde $1.200.000 COP';
-            ctaText = 'Contratar Ahora';
+        let plan = '';
+        let initialPrice = '';
+        let monthlyPrice = '';
+        let ctaText = 'Mandar WhatsApp y Recibir Cotización';
+        let isCustom = false;
+        let featuresHtml = '';
+
+        // Formats numbers as COP
+        const formatCOP = (num) => {
+            return '$' + num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".") + ' COP';
+        };
+
+        // Calculate based on new pricing data
+        if (selectedRisk === 'Alto' || selectedEmployees === '21+') {
+            plan = 'PLAN CORPORATIVO A MEDIDA';
+            isCustom = true;
+            initialPrice = 'Desde $2.500.000 COP';
+            monthlyPrice = selectedRisk === 'Alto' ? 'Desde ~' + formatCOP(2519084) : 'Desde ~' + formatCOP(1979494);
             featuresHtml = `
-                <li><i class="fas fa-check-circle"></i> <span>Diseño documental SG-SST</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Matriz legal básica</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Plan de emergencias estándar</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Diseño e Implementación SG-SST completo</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Administración in-house (min. 16h/mes)</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Gestión avanzada de Tareas de Alto Riesgo (TAR)</span></li>
             `;
-            resultPriceContainer.style.display = 'block';
-        } else if (plan === 'PLAN PROFESIONAL') {
-            price = 'Desde $2.500.000 COP';
-            ctaText = 'Contratar Ahora';
+        } else {
+            // Risk Bajo (I, II, III) and <= 20 employees
+            isCustom = false;
+            
+            if (selectedEmployees === '1-2') {
+                plan = 'PLAN MICRO (1-2 Emp)';
+                initialPrice = formatCOP(690000) + ' + IVA';
+                monthlyPrice = 'Consultar tarifa mensual'; // No explicit monthly rate for 1-2 in prompt, fall back to NA or custom 
+            } else if (selectedEmployees === '3-5') {
+                plan = 'PLAN MICRO (3-5 Emp)';
+                initialPrice = formatCOP(960000) + ' + IVA';
+                monthlyPrice = formatCOP(272000) + ' + IVA';
+            } else if (selectedEmployees === '6-10') {
+                plan = 'PLAN PEQUEÑA EMPRESA';
+                initialPrice = formatCOP(1390000) + ' + IVA';
+                monthlyPrice = formatCOP(344000) + ' + IVA';
+            } else if (selectedEmployees === '11-15') {
+                plan = 'PLAN PYME (11-15 Emp)';
+                initialPrice = formatCOP(1990000) + ' + IVA';
+                monthlyPrice = formatCOP(489000) + ' + IVA';
+            } else if (selectedEmployees === '16-20') {
+                plan = 'PLAN PYME (16-20 Emp)';
+                initialPrice = 'Desde ' + formatCOP(1990000) + ' + IVA'; // Assuming base of Pyme or custom
+                monthlyPrice = formatCOP(679000) + ' + IVA';
+            }
+
             featuresHtml = `
-                <li><i class="fas fa-check-circle"></i> <span>Sistema Integral SG-SST + TAR</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Acompañamiento comité paritario</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Gestión de indicadores proactivos</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Diseño inicial: Diagnóstico, Matriz, Políticas</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Administración: Outsourcing continuo del sistema</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Cumplimiento Mensual de indicadores</span></li>
             `;
-            resultPriceContainer.style.display = 'block';
-        } else if (plan === 'PLAN PREMIUM') {
-            price = ''; // No price for Premium
-            ctaText = 'Solicitar Cotización Técnica';
-            featuresHtml = `
-                <li><i class="fas fa-check-circle"></i> <span>Administración total in-house</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Auditorías RUC / ISO 45001</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Medicina preventiva y epidemiología</span></li>
-            `;
-            resultPriceContainer.style.display = 'none'; // Hide price block
+            
+            // Fix missing monthly rate for 1-2 emp based on the "3-5" baseline
+            if (selectedEmployees === '1-2') {
+                monthlyPrice = 'Desde ' + formatCOP(272000) + ' + IVA';
+            }
         }
 
         // Populate Result Card
         resultPlanName.textContent = plan;
         resultFeatures.innerHTML = featuresHtml;
-        resultPrice.textContent = price;
+        resultPriceInitial.textContent = initialPrice;
+        resultPriceMonthly.textContent = monthlyPrice;
         resultCta.textContent = ctaText;
         
         // Update CTA WhatsApp message dynamically based on selection
-        const message = encodeURIComponent(`Hola, usé su calculadora y mi empresa (${selectedEmployees} empleados, riesgo ${selectedRisk}) requiere el ${plan}. Me gustaría ${ctaText.toLowerCase()}.`);
+        const message = encodeURIComponent(`Hola Johan, mi nombre es ${inputName} (WhatsApp: ${inputPhone}). Usé la calculadora de NeoSST y mi empresa (${selectedEmployees} empleados, riesgo ${selectedRisk}) requiere cotizar el ${plan}. Me gustaría conocer más detalles sobre los costos de implementación y administración.`);
         resultCta.href = `https://wa.me/573183903019?text=${message}`;
 
         // Switch Views with Animation

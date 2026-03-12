@@ -289,9 +289,12 @@
                     <div class="calc-group">
                         <label>1. ¿Cuántos empleados tiene su empresa?</label>
                         <div class="calc-options" id="calc-employees">
-                            <button class="calc-btn active" data-val="1-10">1-10</button>
-                            <button class="calc-btn" data-val="11-50">11-50</button>
-                            <button class="calc-btn" data-val="+50">+50</button>
+                            <button class="calc-btn active" data-val="1-2">1-2 (Micro)</button>
+                            <button class="calc-btn" data-val="3-5">3-5 (Micro)</button>
+                            <button class="calc-btn" data-val="6-10">6-10 (Pequeña)</button>
+                            <button class="calc-btn" data-val="11-15">11-15 (Pyme)</button>
+                            <button class="calc-btn" data-val="16-20">16-20 (Pyme)</button>
+                            <button class="calc-btn" data-val="21+">Más de 20</button>
                         </div>
                     </div>
 
@@ -300,6 +303,14 @@
                         <div class="calc-options" id="calc-risk">
                             <button class="calc-btn active" data-val="Bajo">Bajo (I, II, III)</button>
                             <button class="calc-btn" data-val="Alto">Alto (IV, V)</button>
+                        </div>
+                    </div>
+
+                    <div class="calc-group">
+                        <label>3. Sus datos de contacto</label>
+                        <div class="calc-contact-inputs">
+                            <input type="text" id="calc-name" placeholder="Su Nombre / Empresa" required class="calc-input">
+                            <input type="tel" id="calc-phone" placeholder="Su número de WhatsApp" required class="calc-input">
                         </div>
                     </div>
                     
@@ -320,12 +331,14 @@
                     </ul>
 
                     <div class="result-price-container" id="result-price-container">
-                        <p>Inversión estimada</p>
-                        <h4 id="result-price">Desde $1.200.000 COP</h4>
+                        <p>Inversión Inicial Estimada (Diseño)</p>
+                        <h4 id="result-price-initial">Desde $690.000 COP + IVA</h4>
+                        <p style="margin-top: 1rem;">Administración Mensual</p>
+                        <h4 id="result-price-monthly">Desde $272.000 COP + IVA</h4>
                     </div>
                     
                     <div class="result-actions">
-                        <a href="#contacto" id="result-cta" class="cta-button primary-btn">Contratar Ahora</a>
+                        <a href="#contacto" target="_blank" id="result-cta" class="cta-button primary-btn">Mandar WhatsApp y Recibir Cotización</a>
                         <button id="btn-recalculate" class="text-btn"><i class="fas fa-redo"></i> Volver a calcular</button>
                     </div>
                 </div>
