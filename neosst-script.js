@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             plan = 'PLAN CORPORATIVO A MEDIDA';
             isCustom = true;
             initialPrice = 'Desde $2.500.000 COP';
-            monthlyPrice = selectedRisk === 'Alto' ? 'Desde ~' + formatCOP(2519084) : 'Desde ~' + formatCOP(1979494);
+            monthlyPrice = 'Desde ~' + formatCOP(1100000);
             featuresHtml = `
                 <li><i class="fas fa-check-circle"></i> <span>Diseño e Implementación SG-SST completo</span></li>
                 <li><i class="fas fa-check-circle"></i> <span>Administración in-house (min. 16h/mes)</span></li>

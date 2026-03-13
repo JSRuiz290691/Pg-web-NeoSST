@@ -1116,6 +1116,7 @@ footer p {
     font-weight: 800;
     margin: 1.5rem 0;
     color: var(--primary);
+    display: none;
 }
 
 .pricing-card.featured .price-tag {
