@@ -28,10 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     reveal(); // Trigger reveal on load
 
-    // Handle Contact Form Submission via WhatsApp
+    // Handle Contact Form Submission with Firebase & Telegram
     var contactForm = document.getElementById("advancedContactForm");
-    if (contactForm) {
-        contactForm.addEventListener("submit", function (e) {
+    if (contactForm && typeof firebase !== 'undefined') {
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDwOKmA1hf3Y6ZblxhWxaYN5vVgD7eZGMk",
+            authDomain: "opengravity-cloud2026.firebaseapp.com",
+            projectId: "opengravity-cloud2026",
+            storageBucket: "opengravity-cloud2026.firebasestorage.app",
+            messagingSenderId: "316418554140",
+            appId: "1:316418554140:web:584201418e7d1d259fe2d9"
+        };
+        
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const db = firebase.firestore();
+
+        // Telegram config
+        const TELEGRAM_BOT_TOKEN = "8606881401:AAHn24lMfEvAtXMKCZ44M1V86HS3ZJOrHgE";
+        const TELEGRAM_CHAT_ID = "6539183174";
+
+        contactForm.addEventListener("submit", async function (e) {
             e.preventDefault(); // Prevent default page reload
 
             // Get form values
@@ -39,20 +58,66 @@ document.addEventListener("DOMContentLoaded", function () {
             var servicio = document.getElementById("servicio").value;
             var reto = document.getElementById("reto").value;
 
-            // Construct WhatsApp Message
-            var phoneNumber = "573183903019"; // Without '+' for wa.me link
-            var message = `¡Hola Johan! Estoy interesado en una asesoría para mi empresa.\n\n` +
-                          `🏢 *Empresa / Contacto:* ${empresa}\n` +
-                          `🛠️ *Servicio de Interés:* ${servicio}\n` +
-                          `🎯 *Nuestro mayor reto hoy es:* ${reto}\n\n` +
-                          `Quedo atento a su respuesta.`;
+            var submitBtn = contactForm.querySelector('button[type="submit"]');
+            var originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
+            submitBtn.disabled = true;
 
-            // Encode message for URL
-            var encodedMessage = encodeURIComponent(message);
+            try {
+                // 1. Guardar en Firebase (Firestore)
+                await db.collection("asesorias_gratuitas").add({
+                    empresa: empresa,
+                    servicio: servicio,
+                    reto: reto,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                console.log("Datos guardados en Firebase Firestore correctamente.");
 
-            // Redirect to WhatsApp
-            var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
+                // 2. Enviar a Telegram
+                var telegramMessage = `🚀 *Nuevos datos de contacto web (NeoSST)* 🚀\n\n🏢 *Empresa / Contacto:* ${empresa}\n🛠️ *Servicio de Interés:* ${servicio}\n🎯 *Reto Principal:* ${reto}`;
+                var telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+                
+                await fetch(telegramUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: telegramMessage,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                console.log("Notificación enviada a Telegram de forma exitosa.");
+
+                // Mensaje a WhatsApp (lógica existente mantenida)
+                var phoneNumber = "573183903019";
+                var whatsAppText = `¡Hola Johan! Estoy interesado en una asesoría para mi empresa.\n\n🏢 *Empresa / Contacto:* ${empresa}\n🛠️ *Servicio de Interés:* ${servicio}\n🎯 *Nuestro mayor reto hoy es:* ${reto}\n\nQuedo atento a su respuesta.`;
+                var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsAppText)}`;
+                
+                // Mostrar éxito
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Enviado correctamente';
+                submitBtn.style.background = 'linear-gradient(135deg, #28a745, #218838)';
+
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    contactForm.reset();
+                }, 1500);
+
+            } catch (error) {
+                console.error("Error al procesar la solicitud (Firebase o Telegram): ", error);
+                alert("Hubo un detalle técnico guardando tus datos (tal vez Cloud Firestore no esté inicializado en Firebase Console). Sin embargo, te redirigiremos a WhatsApp directamente.");
+                
+                // Fallback: Si Firebase falla, al menos ir a WA
+                var phoneNumber = "573183903019";
+                var whatsAppText = `¡Hola Johan! Estoy interesado en una asesoría para mi empresa.\n\n🏢 *Empresa / Contacto:* ${empresa}\n🛠️ *Servicio de Interés:* ${servicio}\n🎯 *Nuestro mayor reto hoy es:* ${reto}\n\nQuedo atento a su respuesta.`;
+                var whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsAppText)}`;
+                window.open(whatsappUrl, '_blank');
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 });
