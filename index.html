@@ -367,27 +367,21 @@
 
                 <!-- Resultado (Hidden by default) -->
                 <div id="calc-result" class="calc-section hidden">
-                    <div class="result-header">
+                    <div class="result-header" style="text-align: center; margin-bottom: 2rem;">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: #28a745; margin-bottom: 1rem;"></i>
                         <p>Su plan recomendado es:</p>
-                        <h3 id="result-plan-name">PLAN ESENCIAL</h3>
+                        <h3 id="result-plan-name" style="color: var(--primary-color); font-size: 1.5rem; margin: 0.5rem 0;"></h3>
                     </div>
 
                     <ul class="result-features" id="result-features">
-                        <li><i class="fas fa-check-circle"></i> <span>Diseño documental SG-SST</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Matriz legal básica</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Plan de emergencias estándar</span></li>
+                        <!-- Populated dynamically via JS -->
                     </ul>
 
-                    <div class="result-price-container" id="result-price-container">
-                        <p>Inversión Inicial Estimada (Diseño)</p>
-                        <h4 id="result-price-initial">Desde $690.000 COP + IVA</h4>
-                        <p style="margin-top: 1rem;">Administración Mensual</p>
-                        <h4 id="result-price-monthly">Desde $272.000 COP + IVA</h4>
-                    </div>
-
-                    <div class="result-actions">
-                        <a href="#contacto" target="_blank" id="result-cta" class="cta-button primary-btn">Mandar
-                            WhatsApp y Recibir Cotización</a>
+                    <div class="result-actions" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+                        <p style="color: var(--text-light); margin-bottom: 0.5rem;">Haga clic en el botón a continuación para despachar la información por WhatsApp y recibir su cotización personalizada.</p>
+                        <a href="#contacto" target="_blank" id="result-cta" class="cta-button primary-btn" style="width: 100%; text-align: center; background-color: #25D366; color: white;">
+                            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Mandar WhatsApp y Recibir Cotización
+                        </a>
                         <button id="btn-recalculate" class="text-btn"><i class="fas fa-redo"></i> Volver a
                             calcular</button>
                     </div>

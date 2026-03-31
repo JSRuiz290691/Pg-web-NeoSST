@@ -150,12 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
     const formSection = document.getElementById('calc-form');
     const resultSection = document.getElementById('calc-result');
-    
     const resultPlanName = document.getElementById('result-plan-name');
     const resultFeatures = document.getElementById('result-features');
-    const resultPriceContainer = document.getElementById('result-price-container');
-    const resultPriceInitial = document.getElementById('result-price-initial');
-    const resultPriceMonthly = document.getElementById('result-price-monthly');
     const resultCta = document.getElementById('result-cta');
 
     let selectedEmployees = '1-2'; // Default
@@ -191,72 +187,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let plan = '';
-        let initialPrice = '';
-        let monthlyPrice = '';
-        let ctaText = 'Mandar WhatsApp y Recibir Cotización';
-        let isCustom = false;
         let featuresHtml = '';
-
-        // Formats numbers as COP
-        const formatCOP = (num) => {
-            return '$' + num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".") + ' COP';
-        };
 
         // Calculate based on new pricing data
         if (selectedRisk === 'Alto' || selectedEmployees === '21+') {
             plan = 'PLAN CORPORATIVO A MEDIDA';
-            isCustom = true;
-            initialPrice = 'Desde $2.500.000 COP';
-            monthlyPrice = 'Desde ~' + formatCOP(1100000);
             featuresHtml = `
+                <li><i class="fas fa-list-ol"></i> <strong>60 Estándares Mínimos (Res. 0312 / 2019)</strong></li>
                 <li><i class="fas fa-check-circle"></i> <span>Diseño e Implementación SG-SST completo</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Administración in-house (min. 16h/mes)</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Gestión avanzada de Tareas de Alto Riesgo (TAR)</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Gestión de Tareas de Alto Riesgo (TAR)</span></li>
+                <li><i class="fas fa-check-circle"></i> <span>Auditoría Interna y Revisión por la Dirección</span></li>
             `;
         } else {
             // Risk Bajo (I, II, III) and <= 20 employees
-            isCustom = false;
             
-            if (selectedEmployees === '1-2') {
-                plan = 'PLAN MICRO (1-2 Emp)';
-                initialPrice = formatCOP(690000) + ' + IVA';
-                monthlyPrice = 'Consultar tarifa mensual'; // No explicit monthly rate for 1-2 in prompt, fall back to NA or custom 
-            } else if (selectedEmployees === '3-5') {
-                plan = 'PLAN MICRO (3-5 Emp)';
-                initialPrice = formatCOP(960000) + ' + IVA';
-                monthlyPrice = formatCOP(272000) + ' + IVA';
-            } else if (selectedEmployees === '6-10') {
-                plan = 'PLAN PEQUEÑA EMPRESA';
-                initialPrice = formatCOP(1390000) + ' + IVA';
-                monthlyPrice = formatCOP(344000) + ' + IVA';
-            } else if (selectedEmployees === '11-15') {
-                plan = 'PLAN PYME (11-15 Emp)';
-                initialPrice = formatCOP(1990000) + ' + IVA';
-                monthlyPrice = formatCOP(489000) + ' + IVA';
-            } else if (selectedEmployees === '16-20') {
-                plan = 'PLAN PYME (16-20 Emp)';
-                initialPrice = 'Desde ' + formatCOP(1990000) + ' + IVA'; // Assuming base of Pyme or custom
-                monthlyPrice = formatCOP(679000) + ' + IVA';
-            }
-
-            featuresHtml = `
-                <li><i class="fas fa-check-circle"></i> <span>Diseño inicial: Diagnóstico, Matriz, Políticas</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Administración: Outsourcing continuo del sistema</span></li>
-                <li><i class="fas fa-check-circle"></i> <span>Cumplimiento Mensual de indicadores</span></li>
-            `;
-            
-            // Fix missing monthly rate for 1-2 emp based on the "3-5" baseline
-            if (selectedEmployees === '1-2') {
-                monthlyPrice = 'Desde ' + formatCOP(272000) + ' + IVA';
+            if (selectedEmployees === '1-2' || selectedEmployees === '3-5' || selectedEmployees === '6-10') {
+                plan = selectedEmployees === '1-2' ? 'PLAN MICRO (1-2 Emp)' : (selectedEmployees === '3-5' ? 'PLAN MICRO (3-5 Emp)' : 'PLAN PEQUEÑA EMPRESA');
+                featuresHtml = `
+                    <li><i class="fas fa-list-ol"></i> <strong>7 Estándares Mínimos (Res. 0312 / 2019)</strong></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Asignación de responsable del SG-SST</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Afiliación a Seguridad Social Integral</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Plan Anual de Trabajo y Evaluaciones Médicas</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Identificación de Peligros y Medidas de Prevención</span></li>
+                `;
+            } else if (selectedEmployees === '11-15' || selectedEmployees === '16-20') {
+                plan = selectedEmployees === '11-15' ? 'PLAN PYME (11-15 Emp)' : 'PLAN PYME (16-20 Emp)';
+                featuresHtml = `
+                    <li><i class="fas fa-list-ol"></i> <strong>21 Estándares Mínimos (Res. 0312 / 2019)</strong></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Conformación del COPASST / Vigía</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Políticas, Objetivos y Plan de Capacitaciones</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Archivo y Retención Documental</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Plan de Emergencias y Reporte de Accidentes</span></li>
+                `;
             }
         }
 
-        // Populate Result Card
         resultPlanName.textContent = plan;
-        resultFeatures.innerHTML = featuresHtml;
-        resultPriceInitial.textContent = initialPrice;
-        resultPriceMonthly.textContent = monthlyPrice;
-        resultCta.textContent = ctaText;
+        if (resultFeatures) {
+            resultFeatures.innerHTML = featuresHtml;
+        }
         
         // Update CTA WhatsApp message dynamically based on selection
         const message = encodeURIComponent(`Hola Johan, mi nombre es ${inputName} (WhatsApp: ${inputPhone}). Usé la calculadora de NeoSST y mi empresa (${selectedEmployees} empleados, riesgo ${selectedRisk}) requiere cotizar el ${plan}. Me gustaría conocer más detalles sobre los costos de implementación y administración.`);
